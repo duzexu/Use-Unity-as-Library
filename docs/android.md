@@ -45,10 +45,23 @@ This document explains how to include Unity as a Library into standard Android a
   }
   ```
   <img src="images/android/buildGradleNativeApp.png">
+  
+>  For project exported by Unity 2020+ , you must add `unityStreamingAssets` key to file gradle.properties
+> ```
+> unityStreamingAssets=.unity3d
+> ```
+
 - Click Sync Now to do a project sync since Gradle files have been modified
   <img src="images/android/syncGradle.png">
 - If everything succeeds, you should see unityLibrary module added in Android view
   <img src="images/android/unityLibraryModule.png">
+  
+> If have 'NDK is not installed' error, you must specify NDK version
+> - Open build.gradle(Project: NativeAndroidApp:unityLibrary) file
+> - Add the following in android{ block }
+> ```
+> ndkVersion "xx.x.xxxx"
+> ```
 
 ## Project is ready
 Everything is ready to build, run and debug:
